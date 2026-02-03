@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Yamini ❤️ My Forever</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
@@ -15,93 +16,133 @@
 }
 
 body {
-  height: 100vh;
-  background: linear-gradient(135deg,#ffd1f0,#ff7ad9,#b85cff);
-  overflow: hidden;
-  color: white;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd6ec, #c77dff, #ff8fab);
+  overflow-x: hidden;
+  color: #3a2d2d;
 }
 
 /* Floating hearts */
 .heart {
-  position: absolute;
-  color: rgba(255,255,255,0.6);
-  animation: float 8s infinite linear;
-}
-@keyframes float {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-10vh); }
+  position: fixed;
+  font-size: 22px;
+  opacity: 0.6;
+  animation: floatUp 10s linear infinite;
 }
 
-/* Container */
-.container {
+@keyframes floatUp {
+  from { transform: translateY(110vh); }
+  to { transform: translateY(-20vh); }
+}
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  padding: 70px 20px;
   text-align: center;
-  padding: 40px;
 }
 
-/* Title */
-h1 {
-  font-size: 3.5rem;
-  margin-top: 40px;
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #fff1f8, #fbc2eb);
+  border-radius: 40px;
+  margin: 25px;
+  padding: 80px 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
 }
-.subtitle {
-  font-size: 1.3rem;
-  opacity: 0.9;
+
+.hero h1 {
+  font-size: 3em;
+  color: #ff2f92;
+}
+
+.hero p {
+  font-size: 1.3em;
   margin-top: 10px;
+}
+
+/* Cartoon couple */
+.couple {
+  font-size: 90px;
+  margin: 20px 0;
+  animation: bounce 2.5s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
 /* Buttons */
 .buttons {
-  margin-top: 40px;
+  margin-top: 30px;
 }
+
 .btn {
   padding: 14px 30px;
   margin: 10px;
   border-radius: 30px;
   border: none;
-  font-size: 1rem;
+  font-size: 1.05em;
   cursor: pointer;
-  background: white;
-  color: #ff2fa4;
+  background: #ff2f92;
+  color: white;
   transition: all 0.3s;
 }
+
 .btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px #fff;
+  background: #ff5fa2;
 }
 
-/* Sections */
-.section {
+/* Message box */
+.message-box {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 35px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
   display: none;
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Image gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   margin-top: 40px;
-  animation: fade 1s ease;
-}
-@keyframes fade {
-  from {opacity:0; transform: translateY(20px);}
-  to {opacity:1; transform: translateY(0);}
 }
 
-/* Cartoon couple */
-.couple {
-  font-size: 80px;
-  animation: bounce 2s infinite;
-}
-@keyframes bounce {
-  0%,100% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
+.gallery img {
+  width: 220px;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
 }
 
-/* BTS images */
-.bts img {
-  width: 200px;
-  border-radius: 20px;
-  margin: 10px;
-  animation: zoom 1.5s ease;
-}
-@keyframes zoom {
-  from {opacity:0; transform: scale(0.5);}
-  to {opacity:1; transform: scale(1);}
+.gallery img:hover {
+  transform: scale(1.08);
 }
 
+/* BTS section */
+.bts {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-radius: 40px;
+  margin: 25px;
+}
+
+.bts h2 {
+  color: #7b2cbf;
+  font-size: 2.5em;
+}
 </style>
 </head>
 
@@ -109,68 +150,78 @@ h1 {
 
 <!-- Floating hearts -->
 <script>
-for(let i=0;i<30;i++){
-  let h=document.createElement("div");
-  h.className="heart";
-  h.style.left=Math.random()*100+"vw";
-  h.style.fontSize=(10+Math.random()*20)+"px";
-  h.innerHTML="💖";
-  h.style.animationDuration=(5+Math.random()*5)+"s";
+for (let i = 0; i < 25; i++) {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💖";
+  h.style.left = Math.random() * 100 + "vw";
+  h.style.animationDuration = (6 + Math.random() * 6) + "s";
   document.body.appendChild(h);
 }
-</script>
 
-<div class="container">
-
-<h1>Yamini ❤️</h1>
-<div class="subtitle">My Valentine. My World. My Forever.</div>
-
-<div class="couple">👩‍❤️‍👨</div>
-
-<div class="buttons">
-  <button class="btn" onclick="show('love')">💖 Why I Love You</button>
-  <button class="btn" onclick="show('promise')">💍 My Promise</button>
-  <button class="btn" onclick="show('you')">🌸 Just For You</button>
-  <button class="btn" onclick="show('bts')">💜 BTS Love</button>
-</div>
-
-<!-- Sections -->
-<div id="love" class="section">
-  <h2>💖 Why I Love You</h2>
-  <p>You are my peace, my smile, my forever home.<br>
-     Every heartbeat whispers your name, Yamini.</p>
-</div>
-
-<div id="promise" class="section">
-  <h2>💍 My Promise</h2>
-  <p>I promise to love you in every season,<br>
-     in every smile, in every silence.</p>
-</div>
-
-<div id="you" class="section">
-  <h2>🌸 Just For You</h2>
-  <p>This world feels magical because you exist in it.<br>
-     You are my miracle.</p>
-</div>
-
-<div id="bts" class="section bts">
-  <h2>💜 BTS Love Zone</h2>
-  <p>Because your smile shines like BTS songs 💜</p>
-
-  <!-- ADD BTS IMAGES HERE -->
-  <img src="YOUR_BTS_IMAGE_LINK_1">
-  <img src="YOUR_BTS_IMAGE_LINK_2">
-  <img src="YOUR_BTS_IMAGE_LINK_3">
-</div>
-
-</div>
-
-<script>
-function show(id){
-  document.querySelectorAll('.section').forEach(s=>s.style.display="none");
-  document.getElementById(id).style.display="block";
+function showMessage(id) {
+  document.querySelectorAll('.message-box')
+    .forEach(m => m.style.display = "none");
+  document.getElementById(id).style.display = "block";
 }
 </script>
+
+<!-- HERO SECTION -->
+<div class="section hero">
+  <h1>Yamini ❤️</h1>
+  <p>My Valentine. My World. My Forever.</p>
+
+  <div class="couple">👩‍❤️‍👨</div>
+
+  <div class="buttons">
+    <button class="btn" onclick="showMessage('m1')">Why I Love You 💕</button>
+    <button class="btn" onclick="showMessage('m2')">My Promise 💍</button>
+    <button class="btn" onclick="showMessage('m3')">Just For You 🌸</button>
+  </div>
+
+  <div id="m1" class="message-box">
+    You are my calm in chaos, my smile in silence,  
+    and my happiness in every heartbeat.  
+    Loving you feels natural… like breathing.
+  </div>
+
+  <div id="m2" class="message-box">
+    I promise to stand beside you in every season of life,  
+    to choose you every day,  
+    and to love you more with every sunrise.
+  </div>
+
+  <div id="m3" class="message-box">
+    If love had a shape, it would be your smile.  
+    If love had a sound, it would be your laughter.  
+    You are my miracle, Yamini.
+  </div>
+</div>
+
+<!-- LOVE IMAGE SECTION -->
+<div class="section">
+  <h2>Our Love ❤️</h2>
+  <div class="gallery">
+    <img src="love1.jpg" alt="Love">
+  </div>
+</div>
+
+<!-- BTS SECTION -->
+<div class="section bts">
+  <h2>Because You Love BTS 💜</h2>
+  <p>And I love seeing you happy when you talk about them</p>
+
+  <div class="gallery">
+    <img src="bts1.jpg" alt="BTS">
+    <img src="bts2.jpg" alt="BTS">
+    <img src="bts3.jpg" alt="BTS">
+  </div>
+</div>
+
+<div class="section">
+  <h2>Forever Yours ❤️</h2>
+  <p style="font-size:1.3em;">— Hemakumar</p>
+</div>
 
 </body>
 </html>
